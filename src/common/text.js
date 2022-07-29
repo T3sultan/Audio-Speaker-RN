@@ -36,4 +36,3 @@ const text = props => {
 export default text;
 
 const styles = StyleSheet.create({});
-f;
