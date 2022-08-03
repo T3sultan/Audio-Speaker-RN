@@ -6,6 +6,7 @@ import Text from "./src/common/text";
 import FlashMessage from "react-native-flash-message";
 import store from "./src/redux/index";
 import Navigation from "./src/navigation";
+import { spacing } from "./src/theme";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -18,7 +19,9 @@ export default function App() {
   } else {
     return (
       <Provider store={store}>
-        <Navigation />
+        <View style={{ flex: 1, marginTop: spacing[6] }}>
+          <Navigation />
+        </View>
         <View>
           <StatusBar />
           <FlashMessage position="top" floating statusBarLight={30} />
