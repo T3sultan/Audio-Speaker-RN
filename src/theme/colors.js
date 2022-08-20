@@ -11,5 +11,7 @@ const colors = {
   lightRed: "#CD5120",
   green: "#1ec2a4",
   blue: "#2d68f0",
+  primary: "#D87D4A",
+  gry: "#e6ebe7",
 };
 export default colors;

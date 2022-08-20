@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectStatus, fetchProducts } from "../redux/productSlice";
 import BannerTitle from "../common/BannerTitle";
 import { colors, spacing } from "../theme";
+import CartagoryBox from "../components/CartagoryBox";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const Home = () => {
     );
   }
   return (
-    <View>
+    <View style={{ backgroundColor: colors.white }}>
       <ScrollView>
         <BannerTitle />
         <View style={styles.container}>
@@ -50,7 +51,20 @@ const Home = () => {
             </Text>
           </View>
         </View>
-        <View style={styles.container2}></View>
+        <View style={styles.container2}>
+          <CartagoryBox
+            title="HEADPHONES"
+            image={require("../../assets/images/home-headphone.png")}
+          />
+          <CartagoryBox
+            title="SPEAKERS"
+            image={require("../../assets/images/home-speaker.png")}
+          />
+          <CartagoryBox
+            title="EARPHONES"
+            image={require("../../assets/images/home-earphone.png")}
+          />
+        </View>
       </ScrollView>
     </View>
   );
