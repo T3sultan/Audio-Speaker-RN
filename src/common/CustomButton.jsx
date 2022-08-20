@@ -28,6 +28,7 @@ const CustomButton = ({
 
   exploreButton,
   centered,
+  purple,
 }) => {
   return (
     <TouchableNativeFeedback onPress={onPress}>
@@ -43,6 +44,7 @@ const CustomButton = ({
           style,
           primary && { backgroundColor: colors.primary },
           blue && { backgroundColor: colors.blue },
+          purple && { backgroundColor: colors.gry },
           exploreButton && { backgroundColor: colors.red },
           centered && { textAlign: "center" },
         ]}
@@ -69,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.superLightGrey,
-    borderColor: colors.border,
+    borderColor: colors.white,
     borderRadius: spacing[3],
     height: spacing[9],
     borderWidth: 1,
