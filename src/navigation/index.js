@@ -122,6 +122,20 @@ export default function Navigation() {
         />
         <Tab.Screen
           options={{
+            title: "Speakers",
+            tabBarIcon: ({ color }) => (
+              <TabBarIcon
+                fontFamily={"MaterialCommunityIcons"}
+                name="speaker"
+                color={color}
+              />
+            ),
+          }}
+          name="SpeakersTab"
+          component={SpeakerStackScreen}
+        />
+        <Tab.Screen
+          options={{
             title: "Earphones",
             tabBarIcon: ({ color }) => (
               <TabBarIcon
@@ -134,20 +148,7 @@ export default function Navigation() {
           name="EarphoneTab"
           component={EarPhoneStackScreen}
         />
-        <Tab.Screen
-          options={{
-            title: "Speaker",
-            tabBarIcon: ({ color }) => (
-              <TabBarIcon
-                fontFamily={"MaterialCommunityIcons"}
-                name="speaker"
-                color={color}
-              />
-            ),
-          }}
-          name="SpeakerTab "
-          component={SpeakerStackScreen}
-        />
+
         <Tab.Screen
           options={{
             title: "Cart",

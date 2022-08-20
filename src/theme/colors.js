@@ -13,5 +13,9 @@ const colors = {
   blue: "#2d68f0",
   primary: "#D87D4A",
   gry: "#e6ebe7",
+  description: "#666666",
+  exploreButton: "#2980B9",
+  orange: "#F2994A",
+  superLightGrey: "#eeeeee",
 };
 export default colors;

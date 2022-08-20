@@ -19,7 +19,7 @@ import { colors, spacing } from "../theme";
 import CartagoryBox from "../components/CartagoryBox";
 import FeatureProducts from "../components/FeatureProducts";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const status = useSelector(selectStatus);
   const featureProducts = useSelector(selectFeaturedProducts);
@@ -60,14 +60,23 @@ const Home = () => {
         </View>
         <View style={styles.container2}>
           <CartagoryBox
+            onPress={() => {
+              navigation.navigate("HeadphoneTab");
+            }}
             title="HEADPHONES"
             image={require("../../assets/images/home-headphone.png")}
           />
           <CartagoryBox
             title="SPEAKERS"
             image={require("../../assets/images/home-speaker.png")}
+            onPress={() => {
+              navigation.navigate("SpeakersTab");
+            }}
           />
           <CartagoryBox
+            onPress={() => {
+              navigation.navigate("EarphoneTab");
+            }}
             title="EARPHONES"
             image={require("../../assets/images/home-earphone.png")}
           />
