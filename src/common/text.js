@@ -23,7 +23,7 @@ const text = props => {
       style={[
         styles,
         textColor && { color: textColor },
-        centered && { alignItems: "center" },
+        centered && { textAlign: "center" },
         white && { color: colors.white },
         uppercase && { textTransform: "uppercase" },
       ]}

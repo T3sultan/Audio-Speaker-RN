@@ -1,15 +1,16 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import { PRODUCT_IMAGE_MAP } from "../data/products";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { DATA, PRODUCT_IMAGE_MAP } from "../../data/product-image-map";
 
 const initialState = {
-  products: [],
-  state: "idle",
+  products: DATA,
+  status: "idle",
   error: null,
 };
+
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    const response = await fetch("../data/products.js");
+    const response = await fetch("http://103.28.121.57/api/products");
     return response.json();
   }
 );
@@ -19,18 +20,20 @@ export const productSlice = createSlice({
   initialState: initialState,
   reducers: {},
   extraReducers: {
-    [fetchProducts.pending]: (state, action) => {
+    [fetchProducts.pending]: (state, actions) => {
       state.status = "loading";
     },
     [fetchProducts.fulfilled]: (state, action) => {
       state.status = "success";
       const { payload } = action;
-      // payload.products.forEach(product => {
-      //   product.featureImage = PRODUCT_IMAGE_MAP[product.name].featureImage;
-      //   product.images = PRODUCT_IMAGE_MAP[product.name].images;
-      // });
+
+      console.log(payload);
+      payload.products.forEach(product => {
+        product.featuredImage = PRODUCT_IMAGE_MAP[product.name].featuredImage;
+        product.images = PRODUCT_IMAGE_MAP[product.name].images;
+      });
+      state.status = "success";
       state.products = payload.products;
-      console.log("api response", payload);
     },
     [fetchProducts.rejected]: (state, action) => {
       state.status = "failed";

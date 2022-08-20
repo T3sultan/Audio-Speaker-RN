@@ -1,13 +1,23 @@
-import { ActivityIndicator, StyleSheet, View } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  ScrollView,
+  StyleSheet,
+  useWindowDimensions,
+  View,
+} from "react-native";
 import React, { useEffect } from "react";
 import Text from "../common/text";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts, selectStatus } from "../redux/productSlice";
+import { selectStatus, fetchProducts } from "../redux/productSlice";
+import BannerTitle from "../common/BannerTitle";
+import { colors, spacing } from "../theme";
 
 const Home = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectStatus);
-  console.log("status", status);
+  const { width, height } = useWindowDimensions();
+
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchProducts());
@@ -23,11 +33,46 @@ const Home = () => {
   }
   return (
     <View>
-      <Text>Home</Text>
+      <ScrollView>
+        <BannerTitle />
+        <View style={styles.container}>
+          <Image
+            style={styles.bannerImage}
+            source={require("../../assets/images/home-banner.png")}
+          />
+          <View style={styles.backgroundText}>
+            <Text white centered style={styles.mainText} preset="h2">
+              Welcome
+            </Text>
+            <Text textColor={colors.grey} centered>
+              Experience natural, lifelike audio and exceptional build quality
+              made fore the passionate music enthusiast.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.container2}></View>
+      </ScrollView>
     </View>
   );
 };
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.black,
+  },
+  bannerImage: {
+    alignSelf: "center",
+    width: "100%",
+    resizeMode: "cover",
+  },
+  backgroundText: {
+    position: "absolute",
+    width: "100%",
+    top: 200,
+  },
+  container2: {
+    paddingVertical: spacing[8],
+  },
+});

@@ -1,50 +1,50 @@
 export const PRODUCT_IMAGE_MAP = {
   "XX99 Mark II": {
-    featuredImage: { source: require("../../assets/images/xx99-mark-2.png") },
+    featuredImage: { source: require("../assets/images/xx99-mark-2.png") },
     images: [
-      { source: require("../../assets/images/xx99-mark-1.png") },
-      { source: require("../../assets/images/xx99-mark-two-2.png") },
-      { source: require("../../assets/images/xx99-mark-two-3.png") },
+      { source: require("../assets/images/xx99-mark-two-1.png") },
+      { source: require("../assets/images/xx99-mark-two-2.png") },
+      { source: require("../assets/images/xx99-mark-two-3.png") },
     ],
   },
   "XX99 Mark I": {
-    featuredImage: { source: require("../../assets/images/xx99-mark-1.png") },
+    featuredImage: { source: require("../assets/images/xx99-mark-1.png") },
     images: [
-      { source: require("../../assets/images/xx99-mark-one-1.png") },
-      { source: require("../../assets/images/xx99-mark-one-2.png") },
-      { source: require("../../assets/images/xx99-mark-one-3.png") },
+      { source: require("../assets/images/xx99-mark-one-1.png") },
+      { source: require("../assets/images/xx99-mark-one-2.png") },
+      { source: require("../assets/images/xx99-mark-one-3.png") },
     ],
   },
   XX59: {
-    featuredImage: { source: require("../../assets/images/xx59.png") },
+    featuredImage: { source: require("../assets/images/xx59.png") },
     images: [
-      { source: require("../../assets/images/xx59-1.png") },
-      { source: require("../..//assets/images/xx59-2.png") },
-      { source: require("../../assets/images/xx59-3.png") },
+      { source: require("../assets/images/xx59-1.png") },
+      { source: require("../assets/images/xx59-2.png") },
+      { source: require("../assets/images/xx59-3.png") },
     ],
   },
   ZX9: {
-    featuredImage: { source: require("../../assets/images/zx9.png") },
+    featuredImage: { source: require("../assets/images/zx9.png") },
     images: [
-      { source: require("../../assets/images/zx9-1.png") },
-      { source: require("../../assets/images/zx9-2.png") },
-      { source: require("../../assets/images/zx9-3.png") },
+      { source: require("../assets/images/zx9-1.png") },
+      { source: require("../assets/images/zx9-2.png") },
+      { source: require("../assets/images/zx9-3.png") },
     ],
   },
   ZX7: {
-    featuredImage: { source: require("../../assets/images/zx7.png") },
+    featuredImage: { source: require("../assets/images/zx7.png") },
     images: [
-      { source: require("../../assets/images/zx7-1.png") },
-      { source: require("../../assets/images/zx7-2.png") },
-      { source: require("../../assets/images/zx7-3.png") },
+      { source: require("../assets/images/zx7-1.png") },
+      { source: require("../assets/images/zx7-2.png") },
+      { source: require("../assets/images/zx7-3.png") },
     ],
   },
   "YX1 WIRELESS": {
-    featuredImage: { source: require("../../assets/images/yx1.png") },
+    featuredImage: { source: require("../assets/images/yx1.png") },
     images: [
-      { source: require("../../assets/images/yx1-1.png") },
-      { source: require("../../assets/images/yx1-2.png") },
-      { source: require("../../assets/images/yx1-3.png") },
+      { source: require("../assets/images/yx1-1.png") },
+      { source: require("../assets/images/yx1-2.png") },
+      { source: require("../assets/images/yx1-3.png") },
     ],
   },
 };
@@ -123,7 +123,7 @@ export const DATA = [
   {
     id: 4,
     category: "speakers",
-    is_featured: false,
+    is_featured: true,
     name: "ZX9",
     description:
       "Connect via Bluetooth or nearly any wired source. This speaker features optical, digital coaxial, USB Type-B, stereo RCA, and stereo XLR inputs, allowing you to have up to five wired source devices connected for easy switching. Improved bluetooth technology offers near lossless audio quality at up to 328ft (100m). Discover clear, more natural sounding highs than the competition with ZX9’s signature planar diaphragm tweeter. Equally important is its powerful room-shaking bass courtesy of a 6.5” aluminum alloy bass unit. You’ll be able to enjoy equal sound quality whether in a large room or small den. Furthermore, you will experience new sensations from old songs since it can respond to even the subtle waveforms.",
@@ -171,7 +171,7 @@ export const DATA = [
   {
     id: 6,
     category: "earphones",
-    is_featured: false,
+    is_featured: true,
     name: "YX1 WIRELESS",
     description:
       "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
