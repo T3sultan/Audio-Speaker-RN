@@ -9,15 +9,22 @@ import {
 import React, { useEffect } from "react";
 import Text from "../common/text";
 import { useDispatch, useSelector } from "react-redux";
-import { selectStatus, fetchProducts } from "../redux/productSlice";
+import {
+  selectStatus,
+  fetchProducts,
+  selectFeaturedProducts,
+} from "../redux/productSlice";
 import BannerTitle from "../common/BannerTitle";
 import { colors, spacing } from "../theme";
 import CartagoryBox from "../components/CartagoryBox";
+import FeatureProducts from "../components/FeatureProducts";
 
 const Home = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectStatus);
+  const featureProducts = useSelector(selectFeaturedProducts);
   const { width, height } = useWindowDimensions();
+  console.log("fe", featureProducts);
 
   useEffect(() => {
     if (status === "idle") {
@@ -34,7 +41,7 @@ const Home = () => {
   }
   return (
     <View style={{ backgroundColor: colors.white }}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <BannerTitle />
         <View style={styles.container}>
           <Image
@@ -65,6 +72,16 @@ const Home = () => {
             image={require("../../assets/images/home-earphone.png")}
           />
         </View>
+        <View style={styles.features}>
+          {featureProducts.map(product => (
+            <FeatureProducts
+              key={product.id}
+              name={product.name}
+              category={product.category}
+              image={product.featuredImage}
+            />
+          ))}
+        </View>
       </ScrollView>
     </View>
   );
@@ -88,5 +105,9 @@ const styles = StyleSheet.create({
   },
   container2: {
     paddingVertical: spacing[8],
+  },
+  features: {
+    paddingVertical: spacing[8],
+    paddingHorizontal: spacing[4],
   },
 });

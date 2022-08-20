@@ -42,5 +42,7 @@ export const productSlice = createSlice({
 });
 
 export const selectStatus = state => state.products.status;
+export const selectFeaturedProducts = state =>
+  state.products.products.filter(item => item.is_featured);
 
 export default productSlice.reducer;
