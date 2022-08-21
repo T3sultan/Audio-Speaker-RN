@@ -9,6 +9,10 @@ import Speakers from "../screens/Speakers";
 import Cart from "../screens/Cart";
 import Checkout from "../screens/Checkout";
 import { colors } from "../theme";
+
+import { useSelector } from "react-redux";
+import { selectCartLength } from "../redux/CartSlice";
+
 import {
   Ionicons,
   MaterialCommunityIcons,
@@ -83,6 +87,7 @@ function TabBarIcon({ fontFamily, name, color }) {
 }
 
 export default function Navigation() {
+  const cartLength = useSelector(selectCartLength);
   return (
     <NavigationContainer theme={THEME}>
       <Tab.Navigator
@@ -159,6 +164,7 @@ export default function Navigation() {
                 color={color}
               />
             ),
+            tabBarBadge: cartLength > 0 ? cartLength : null,
           }}
           name="CartTab"
           component={CartStackScreen}

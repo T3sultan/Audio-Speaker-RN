@@ -1,4 +1,8 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  combineReducers,
+  getDefaultMiddleware,
+} from "@reduxjs/toolkit";
 import counterReducer from "./counterSlice";
 import productReducer from "./productSlice";
 import cartReducer from "./CartSlice";
@@ -23,6 +27,9 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 // 2. create store
 const store = configureStore({
   reducer: persistedReducer,
+  //some error issues for middleware using
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({ serializableCheck: false }), //to ignore error
 });
 
 export default store;
