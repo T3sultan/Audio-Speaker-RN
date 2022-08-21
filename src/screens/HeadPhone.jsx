@@ -9,8 +9,12 @@ import { colors, spacing } from "../theme";
 import CustomButton from "../common/CustomButton";
 import Footer from "../common/Footer";
 
-const HeadPhone = () => {
+const HeadPhone = ({ navigation }) => {
   const headphones = useSelector(selectHeadPhones);
+  const onPressProduct = id => {
+    navigation.navigate("Details", { id: id });
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -43,7 +47,7 @@ const HeadPhone = () => {
                 </View>
                 <View style={{ marginTop: spacing[2] }}>
                   <CustomButton
-                    onPress={() => {}}
+                    onPress={() => onPressProduct(headphone.id)}
                     purple
                     title={"SEE PRODUCT"}
                   />
