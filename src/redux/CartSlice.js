@@ -22,7 +22,10 @@ export const cartSlice = createSlice({
         return [...state, { ...cartProduct }];
       }
     },
-    deleteFromCart: (state, action) => {},
+    deleteFromCart: (state, action) => {
+      const { payload } = action;
+      return state.filter(item => item.id !== payload.id);
+    },
     reset: () => initialState,
   },
 });

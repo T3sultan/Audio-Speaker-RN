@@ -7,6 +7,10 @@ import FlashMessage from "react-native-flash-message";
 import store from "./src/redux/index";
 import Navigation from "./src/navigation";
 import { spacing } from "./src/theme";
+import { PersistGate } from "redux-persist/es/integration/react";
+import { persistStore } from "redux-persist";
+
+let persistor = persistStore(store);
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -19,13 +23,15 @@ export default function App() {
   } else {
     return (
       <Provider store={store}>
-        <View style={{ flex: 1, marginTop: spacing[6] }}>
-          <Navigation />
-        </View>
-        <View>
-          <StatusBar />
-          <FlashMessage position="top" floating statusBarLight={30} />
-        </View>
+        <PersistGate loading={null} persistor={persistor}>
+          <View style={{ flex: 1, marginTop: spacing[6] }}>
+            <Navigation />
+          </View>
+          <View>
+            <StatusBar />
+            <FlashMessage position="top" floating statusBarLight={30} />
+          </View>
+        </PersistGate>
       </Provider>
     );
   }
