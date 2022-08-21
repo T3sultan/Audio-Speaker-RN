@@ -8,6 +8,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { spacing, colors } from "../theme";
 import CustomButton from "../common/CustomButton";
 import CounterButton from "../components/CounterButton";
+import { showMessage } from "react-native-flash-message";
+import { addToCart } from "../redux/CartSlice";
 
 const ProductsDetails = ({ navigation, route }) => {
   const id = route.params.id;
@@ -24,6 +26,31 @@ const ProductsDetails = ({ navigation, route }) => {
     included,
     images,
   } = product;
+  const add = () => {
+    if (amount === 0) {
+      return showMessage({
+        message: "You can't add 0 items",
+        type: "danger",
+      });
+    }
+    //cart product
+    const cartProduct = {
+      id,
+      name,
+      featuredImage,
+      price,
+      quantityPrice: product.price * amount,
+      amount,
+    };
+    //add the product to our cart to store/redux
+    dispatch(addToCart({ cartProduct }));
+
+    //show success message
+    showMessage({
+      message: "product added to cart",
+      type: "success",
+    });
+  };
   return (
     <View style={{ flex: 1 }}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -58,6 +85,7 @@ const ProductsDetails = ({ navigation, route }) => {
             <CustomButton
               title={"Add to Cart"}
               style={{ marginLeft: spacing[3], width: "40%", height: 40 }}
+              onPress={add}
             />
           </View>
           <View style={{ marginVertical: spacing[5] }}>

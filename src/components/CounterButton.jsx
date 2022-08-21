@@ -3,16 +3,13 @@ import React, { useState } from "react";
 import Text from "../common/text";
 import { colors, spacing } from "../theme";
 
-const CounterButton = ({ style, setAmount, initialVal }) => {
-  const [count, setCount] = useState(initialVal || 0);
+const CounterButton = ({ amount, style, setAmount }) => {
   const onIncrement = () => {
-    setCount(prev => prev + 1);
-    setAmount(count + 1);
+    setAmount(amount + 1);
   };
   const onDecrement = () => {
-    if (count > 0) {
-      setCount(prev => prev - 1);
-      setAmount(count - 1);
+    if (amount > 0) {
+      setAmount(amount - 1);
     }
   };
   return (
@@ -22,7 +19,7 @@ const CounterButton = ({ style, setAmount, initialVal }) => {
           -
         </Text>
       </Pressable>
-      <Text>{count}</Text>
+      <Text>{amount}</Text>
       <Pressable onPress={onIncrement} style={styles.Btn}>
         <Text style={styles.btnTextStyle} textColor="#c4c4c4">
           +
